@@ -18,6 +18,10 @@ We will spend some time reviewing the concepts from the prework. We will also di
 
 ## Learning Objectives
 
+### Today's Repl
+
+- [JavaScript Arrow functiona and class basics](https://replit.com/@rkgallaway/js-basics#index.js)
+
 As as result of completing Lecture 1 of Code 301, students will: 
 
 - Describe and Define:
