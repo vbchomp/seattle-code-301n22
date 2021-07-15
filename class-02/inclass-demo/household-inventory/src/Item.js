@@ -45,8 +45,11 @@ class Item extends React.Component {
           alt={this.props.description} 
           title={this.props.title} 
         />
-        <p>{this.state.numberOnHand} available</p>
+        <p>{this.state.numberOnHand ? this.state.numberOnHand : 'not'} available</p>
+
+        {/* WTF */}
         <p>{this.state.showFavorite ? '❤️' : ''}</p>
+        
         <p onClick={this.favorite}>{this.props.description}</p>
 
         <Button variant="outline-success" onClick={this.addOne}>Add One</Button>
