@@ -1,0 +1,15 @@
+.item img {
+  width: 200px;
+}
+
+.item {
+  border: 1px solid blue;
+  width: max-content;
+  margin: auto;
+  margin-bottom: 25px;
+  padding: 10px;
+}
+
+.item button {
+  margin: 20px;
+}
