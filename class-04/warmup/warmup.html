@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <title>Warmup</title>  
+  </head>
+  <body>
+    <h2 id="nameHeader">Welcome, user!</h2>
+    <main>
+      <form id="myForm">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+        <br />
+        <label for="dob">Date of Birth</label>
+        <input type="date" name="dob" id="dob" />
+        <br />
+        <label for="year">Fave Year</label>
+        <select name="year" id="year">
+          <option value="">Select a Year</option>
+          <option value="1999">1999 the Year!</option>
+          <option value="2000">2000 no Y2K here</option>
+          <option value="1974">1974 Ryan was born</option>
+          <option value="2021">2021 better than 2020</option>
+        </select>
+        <!-- wrap inside label to get for/id focus functionality for free -->
+      <!-- </label> -->
+        <br />
+        <input type="submit">
+      </form>
+    </main>
+
+    <script src="warmup.js"></script>
+  </body>
+</html>
