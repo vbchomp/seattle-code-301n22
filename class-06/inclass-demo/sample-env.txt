@@ -1,0 +1,1 @@
+REACT_APP_LOCATIONIQ_KEY=<whatever-your-key-is-NO-SPACES-NO-added-punctuation>
