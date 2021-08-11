@@ -2,7 +2,7 @@
 
 ## Overview
 
-Today we will use our express server to request information from third party APIs to send to the front-end.
+Today we will use our express server to request information from  a third party APIs to send to the front-end.
 
 ## Daily Plan
 
