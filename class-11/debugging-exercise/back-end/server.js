@@ -8,11 +8,13 @@ const axios = require('axios');
 const app = express();
 app.use(cors());
 
+const PORT = process.env.PORT;
+
 app.get('/recipes', getRecipes);
 
 function getRecipes(request, response) {
   const ingredient = request.query.ingredient;
-  const url = `https://api.edamam.com/search/?q=${ingredient}&app_id=${process.env.FOOD_APP_ID}&app_key=${process.env.FOOD_APP_KEY}`;
+  const url = `https://api.edamam.com/api/recipes/v2?type=public&q=${ingredient}&app_id=${process.env.FOOD_APP_ID}&app_key=${process.env.FOOD_APP_KEY}`;
 
   axios
     .get(url)
@@ -21,9 +23,9 @@ function getRecipes(request, response) {
       response.status(200).send(recipeArr);
     })
     .catch(err => {
-      console.err('error', err);
+      console.log('error', err);
       response.status(500).send('error', err);
-    })
+    });
 }
 
 class Recipe {
