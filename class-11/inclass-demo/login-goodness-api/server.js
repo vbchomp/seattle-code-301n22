@@ -13,7 +13,6 @@ const jwt = require('jsonwebtoken');
 // all of this came from jsonwebtoken docs and will be EXACTLY THE SAME
 // ---------------------------
 var jwksClient = require('jwks-rsa');
-const { response } = require('express');
 var client = jwksClient({
   // EXCEPTION!  jwksUri comes from your single page application -> settings -> advanced settings -> endpoint -> the jwks one
   jwksUri: 'https://dev-t18s8k45.us.auth0.com/.well-known/jwks.json'
@@ -40,7 +39,7 @@ app.get('/test-login', (req, res) => {
   // the second part is from jet docs
   jwt.verify(token, getKey, {}, function (err, user){
     if(err){
-      response.status(500).send('invlaid token');
+      res.status(500).send('invlaid token');
     }
     res.send(user);
   });
