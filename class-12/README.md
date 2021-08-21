@@ -54,7 +54,7 @@ As a result of completing lecture 13 of Code 301, students will:
   - step 1: Bring in Mongoose
   ```javaScript
   const mongoose = require('mongoose');
-  // making a database called cats
+  // making a database called cats-database
   mongoose.connect('mongodb://localhost:27017/cats-database', {useNewUrlParser: true, useUnifiedTopology: true});
 
   const db = mongoose.connection;
