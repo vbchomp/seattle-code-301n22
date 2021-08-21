@@ -54,8 +54,8 @@ As a result of completing lecture 13 of Code 301, students will:
   - step 1: Bring in Mongoose
   ```javaScript
   const mongoose = require('mongoose');
-  // making a database called cats
-  mongoose.connect('mongodb://localhost:27017/cats', {useNewUrlParser: true, useUnifiedTopology: true});
+  // making a database called cats-database
+  mongoose.connect('mongodb://localhost:27017/cats-database', {useNewUrlParser: true, useUnifiedTopology: true});
 
   const db = mongoose.connection;
   db.on('error', console.error.bind(console, 'connection error:'));
@@ -70,35 +70,31 @@ const catSchema = new mongoose.Schema({
   name: {type: String}
 });
 
-const kittySchema = new mongoose.Schema({
-  name: {type: String, required: true},
-  cats: [catSchema]
-});
 ```
 - step 3: Make a model from the schema
 ```javaScript
-const CatParent = mongoose.model('kittyCats', kittySchema);
+const CatModel = mongoose.model('cat-collection', catSchema);
 ```
 
 - step 4: Create and save a record
 ```javaScript
-const bob = new CatParent({ name: 'bob', cats: [{name:'fluffy'}, {name:'joe'}]});
-bob.save();
+const fluffy = new CatModel({name:'fluffy'});
+fluffy.save();
 ```
 
 - step 5: Gets all the records from the database
 ```javaScript
-  CatParent.find((err, person) => {
+  CatModel.find((err, cat) => {
     if(err) return console.error(err);
-    console.log({person})
+    console.log({cat})
   });
 ```
 
-- Gets the record where the name is 'bob'
+- Gets the record where the name is 'fluffy'
 ```javaScript
-  CatParent.find({name:'bob'}, (err, person) => {
+  CatModel.find({name:'fluffy'}, (err, cat) => {
     if(err) return console.error(err);
-    console.log({person})
+    console.log({cat})
   });
 ```
 
@@ -110,7 +106,7 @@ bob.save();
 > Clarification regarding MongoDB and some differences between Mac and Windows MongoDB usage.  some definitions and important points:
 - MongoDB is a Database Management System.  
 running mongod  in your terminal allows you to interact with that management system.
-- Windows Users, the way we’ve done things in class with JPs direction, you must path your db, and it appears that you need to have mongod running for that path to be accessible for your can-of-books-api.  
+- Windows Users, the way we’ve done things in class with JPs direction, you must path your db, and it appears that you need to have `mongod` running for that path to be accessible for your can-of-books-api.  
    - SIDE NOTE:  Windows users, be VERY thankful we have JP here...  I never would’ve figured that out in lecture, and had no idea it was a necessary step.  I have not successfully used Mongo on a Windows machine!
 - Mac users, like many things Mac, MongoDB just work...  It is a service that essentially runs in the background.  You DO NOT need to path your db.  you DO NOT need to create a db folder.  your database will be created based on the database name you put in your `mongoose.connect()`, and the collection will be created based on the string you insert in your `mongoose.model()` 
   - SIDE NOTE: Sorry for any confusion, BUT the benefit of being able to accommodate the Windows folks is GOOD and It’s likely a better net result to give a little to much unnecssary info to you all, than to leave the Windows Folks high and dry
